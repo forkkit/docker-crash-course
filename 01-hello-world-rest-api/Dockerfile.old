@@ -1,0 +1,10 @@
+FROM openjdk:8-jdk-alpine
+
+ARG PORT=8080
+
+WORKDIR /tmp
+ADD ./target/*.jar app.jar
+
+EXPOSE $PORT
+
+ENTRYPOINT ["/bin/sh", "-c","java -jar app.jar"]
